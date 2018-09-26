@@ -253,12 +253,12 @@ class GapPlot {
 
         let xItems = []
         this.data[xIndicator].forEach((d) => {
-            let v = parseInt(d[activeYear])
+            let v = parseFloat(d[activeYear])
             xItems.push(v)
         })
         let yItems = []
         this.data[yIndicator].forEach((d) => {
-            let v = parseInt(d[activeYear])
+            let v = parseFloat(d[activeYear])
             yItems.push(v)
         })
         let xScale = d3.scaleLinear()
@@ -280,31 +280,31 @@ class GapPlot {
         let dataMap = {}
         this.data[xIndicator].forEach((xd) => {
             if (dataMap[xd.country]) {
-                dataMap[xd.country].x = parseInt(xd[activeYear])
+                dataMap[xd.country].x = parseFloat(xd[activeYear])
             } else {
                 dataMap[xd.country] = {
                     geo: xd.geo,
-                    x: parseInt(xd[activeYear])
+                    x: parseFloat(xd[activeYear])
                 }
             }
         })
         this.data[yIndicator].forEach((yd) => {
             if (dataMap[yd.country]) {
-                dataMap[yd.country].y = parseInt(yd[activeYear])
+                dataMap[yd.country].y = parseFloat(yd[activeYear])
             } else {
                 dataMap[yd.country] = {
                     geo: yd.geo,
-                    y: parseInt(yd[activeYear])
+                    y: parseFloat(yd[activeYear])
                 }
             }
         })
         this.data[circleSizeIndicator].forEach((cd) => {
             if (dataMap[cd.country]) {
-                dataMap[cd.country].value = parseInt(cd[activeYear])
+                dataMap[cd.country].value = parseFloat(cd[activeYear])
             } else {
                 dataMap[cd.country] = {
                     geo: cd.geo,
-                    value: parseInt(cd[activeYear])
+                    value: parseFloat(cd[activeYear])
                 }
             }
         })
