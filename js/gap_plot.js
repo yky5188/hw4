@@ -509,6 +509,7 @@ class GapPlot {
                 sliderText.attr('x',yearScale(this.value));
                 that.activeYear = this.value
             that.updatePlot(that.activeYear, that.xValue, that.yValue, that.cValue);
+            window.infoBox.updateTextDescription(that.activeCountry, this.activeYear)
         });
     }
 
@@ -564,6 +565,7 @@ class GapPlot {
         */
         //YOUR CODE HERE  
         let that = this
+        this.updateCountry = activeCountry
         this.svgContainer.select('.circle-group').selectAll('circle')
             .each(function(d) {
                 if (d.geo.toUpperCase() === activeCountry) {
